@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include<algorithm>
+using namespace std;
+
+int gcd(int a,int b)
+    {
+        int x=max(a,b);
+        int y=min(a,b);
+        while(y)                                  // GCD(a,b)==GCD(a,b%a)        where b>a
+        {
+            int temp=x;
+            x=y;
+            y=temp%y;
+        }
+        return x;
+    }
+
+int main()
+{
+  cout<<"Enter two numbers"<<endl;
+  int x,y;
+  cin>>x>>y;
+  cout<<gcd(x,y)<<endl;
+}
