@@ -1,0 +1,28 @@
+//Kadane's Algorithm
+
+//Maximum sub array sum:
+
+#include<iostream>
+using namespace std;
+
+
+int max_subarraysum(int arr[],int size)
+{
+    int max_curr,max_so_far;
+    max_curr=max_so_far=arr[0];
+    for(int i=1;i<size;i++)
+    {
+        max_curr=max(max_curr,max_curr+arr[i]);
+        max_so_far=max(max_curr,max_so_far);
+    }
+    return max_so_far;
+}
+
+
+int main()
+{
+    int a[]={656,243,6854,324,234,463};
+    int n=sizeof(a)/sizeof(a[0]);
+    cout<<max_subarraysum(a,n);
+    return 0;
+}
